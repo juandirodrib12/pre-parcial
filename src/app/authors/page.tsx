@@ -1,7 +1,11 @@
-import { Author } from "./model/author";
+import { AuthorsList } from "./_components/AuthorsList";
 
 export default async function AuthorsPage() {
-    const response = await fetch('http://localhost:8080/api/authors');
-    const authors: Author[] = await response.json();
-    console.log(authors);
+
+    return (
+        <div>
+            <h1 className="text-3xl font-bold text-center my-8">Authors</h1>
+            <AuthorsList/>
+        </div>
+    )
 }
