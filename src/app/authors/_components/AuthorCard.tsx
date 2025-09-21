@@ -21,6 +21,30 @@ export const AuthorCard = ({ author } : { author: Author }) => {
             <h2 className="text-lg font-medium text-gray-800 mb-1">{author.name}</h2>
             <p className="text-sm text-gray-600 mb-2">{author.description}</p>
             <p className="text-xs text-gray-800">Born: {author.birthDate}</p>
+            <div className="flex justify-center gap-4 mt-4">
+                <button 
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+                    onClick={() => window.location.href = `/authors/${author.id}/editar`}
+                >
+                    Edit
+                </button>
+                <button 
+                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                    onClick={async () => {
+                        const response = await fetch(`http://localhost:8080/api/authors/${author.id}`, {
+                            method: 'DELETE',
+                        });
+
+                        if (response.ok) {
+                            window.location.href = '/authors';
+                        } else {
+                            alert('No se puede eliminar el autor porque tiene libros asociados');
+                        }
+                    }}
+                >
+                    Delete
+                </button>
+            </div>
         </div>
     );
 }
