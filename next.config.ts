@@ -43,6 +43,11 @@ const nextConfig: NextConfig = {
         hostname: "static.vecteezy.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.canyayinlari.com",
+        pathname: "/Skins/shared/images/yazar/desktop/**",
+      },
     ],
   },
 };

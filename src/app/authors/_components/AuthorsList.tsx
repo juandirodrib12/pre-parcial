@@ -24,4 +24,6 @@ export const AuthorsList = () => {
             ))}
         </div>
     );
-}
+};
+
+export default AuthorsList;
